@@ -1,5 +1,9 @@
 import '../../index.css';
 
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
+import { HeaderMenu } from '../../widgets/header-menu/ui/header-menu';
+import { Home } from '../../pages/home/home';
 import styles from './app.module.css';
 import { useEffect } from 'react';
 
@@ -15,7 +19,7 @@ import { useEffect } from 'react';
 //   Register,
 //   ResetPassword
 // } from '@pages';
-// import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
 // import { useDispatch, useSelector } from '../../services/store';
 
 // import { ProtectedRoute } from '../../routes/protected-route';
@@ -24,9 +28,7 @@ import { useEffect } from 'react';
 // import { getOrderByNumber } from '../../slices/orderSlice';
 // import { getUser } from '../../slices/userSlice';
 
-
-
-const App = () => {
+const App = () => (
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const order = useSelector(getOrderByNumber);
@@ -41,10 +43,13 @@ const App = () => {
   //   dispatch(getUser());
   // }, []);
 
-  return (
-    <>
-      <div className={styles.app}>
-        {/* <AppHeader />
+  <>
+    <div className={styles.app}>
+      <HeaderMenu />
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+      {/* <AppHeader />
         <Routes location={backgroundLocation || location}>
           <Route path='*' element={<NotFound404 />} />
           <Route path='/' element={<ConstructorPage />} />
@@ -163,9 +168,7 @@ const App = () => {
             />
           </Routes>
         )} */}
-      </div>
-    </>
-  );
-};
-
+    </div>
+  </>
+);
 export default App;

@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import * as ReactDOMClient from 'react-dom/client';
 
 import { BrowserRouter, RouterProvider } from 'react-router-dom';
@@ -13,10 +15,12 @@ const root = ReactDOMClient.createRoot(container!);
 
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
     {/* <BrowserRouter>
       <Provider store={store}> */}
         <App />
       {/* </Provider>
     </BrowserRouter> */}
+    </BrowserRouter>
   </React.StrictMode>
 );

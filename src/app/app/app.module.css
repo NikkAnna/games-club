@@ -6,6 +6,7 @@
   background: linear-gradient(179deg, #000000, #343b3f);
   background-size: 400% 400%;
   animation: bg-gradient 32s ease infinite;
+  padding: 10px 30px;
 }
 
 ::-webkit-scrollbar {

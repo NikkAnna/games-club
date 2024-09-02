@@ -1,4 +1,4 @@
-// export * from './home';
+export * from './home/home';
 export * from './forgot-password';
 export * from './login';
 export * from './not-fount-404';
