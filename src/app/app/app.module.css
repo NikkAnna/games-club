@@ -1,0 +1,36 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #f2f2f3;
+  background: linear-gradient(179deg, #000000, #343b3f);
+  background-size: 400% 400%;
+  animation: bg-gradient 32s ease infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2f2f37;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid #8585ad;
+  background: #8585ad;
+}
+
+.detailPageWrap {
+  margin: 120px auto;
+}
+
+.detailHeader {
+  text-align: center;
+}
+
+@keyframes bg-gradient {
+  0%{background-position:50% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:50% 0%}
+}
