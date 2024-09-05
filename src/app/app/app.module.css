@@ -1,7 +1,6 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   color: #f2f2f3;
   background: linear-gradient(179deg, #000000, #343b3f);
   background-size: 400% 400%;

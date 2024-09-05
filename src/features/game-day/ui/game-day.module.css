@@ -1,0 +1,16 @@
+.wrapper {
+    max-width: 200px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.title {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.border {
+    border-bottom: solid 3px #FC411E;
+}

@@ -1,12 +1,37 @@
 import '../../index.css';
 
+import { PrimeReactContext, PrimeReactProvider } from 'primereact/api';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
+import { GameDay } from '../../features/game-day/ui';
+import { GameSchedule } from '../../widgets/game-schedule/ui/game-schedule';
 import { HeaderMenu } from '../../widgets/header-menu/ui/header-menu';
 import { Home } from '../../pages/home/home';
+import { ScheduleHeaderItem } from '../../entity/schedule-header';
+import { ScheduleTabs } from '../../entity/schedule-tabs';
+import { TodayButton } from '../../entity/today-button';
 import styles from './app.module.css';
-import { useEffect } from 'react';
 
+function dateConverter(a: number) {
+    const date = new Date(new Date().getTime() + (24 * 60 * 60 * 1000 * a));
+    const tday = date.getDate();
+    const tmonth = date.getMonth() + 1;
+
+    const editMonth = tmonth < 10 ? '0' + tmonth : tmonth;
+    const editDay = tday < 10 ? '0' + tday : tday;
+    const final = `${editDay}.${editMonth}`;
+    return final;
+}
+
+const dates: string[] = [
+    'Сегодня',
+    dateConverter(1),
+    dateConverter(2),
+    dateConverter(3),
+    dateConverter(4),
+    dateConverter(5),
+    dateConverter(6),
+]
 // import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 // import {
 //   ConstructorPage,
@@ -46,6 +71,9 @@ const App = () => (
   <>
     <div className={styles.app}>
       <HeaderMenu />
+      <ScheduleTabs />
+      <ScheduleHeaderItem />
+      <TodayButton>Сегодня</TodayButton>
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>

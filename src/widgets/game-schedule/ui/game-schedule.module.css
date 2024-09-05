@@ -1,0 +1,9 @@
+.weekContainer {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.wrapper {
+    margin: 30px;
+}
