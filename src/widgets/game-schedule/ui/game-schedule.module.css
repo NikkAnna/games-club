@@ -1,9 +1,21 @@
-.weekContainer {
+.wrapper {
+    margin: 0 0 0 0;
     display: flex;
-    justify-content: space-between;
-    
+    flex-direction: column;
 }
 
-.wrapper {
-    margin: 30px;
+.title {
+    margin: 0 0 0 0;
+}
+
+.headerContainer {
+    margin: 30px
+}
+
+.cardsContainer {
+    margin: 30px
+}
+
+.card {
+    margin: 20px 0;
 }

@@ -1,32 +1,37 @@
-.wrapper {
+.button {
     max-width: 150px;
     border-radius: 10px;
     color: #575757;
     background: white;
     border: 1px solid white;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-size: 0.9rem;
 }
 
-.wrapper:hover {   
+.button:hover {   
     background: #FC411E;
     color: white;
     border: 1px solid #FC411E;
 }
 
-.wrapper:active {   
+.button:active {   
     background: #FC411E;
     color: white;
     border: 1px solid #FC411E;
+    transform: scale(1.05);
 }
 
-.wrapper:focus-visible {
+.button:focus-visible {
     background: #FC411E;
     color: white;
     border: 1px solid #FC411E;
     box-shadow: 0 0 0.25rem #FC411E;
+    outline: 1px solid white;
 }
 
 .active {
     background: #FC411E;
-    color: black;
+    color: white;
     border: 1px solid #FC411E;
 }

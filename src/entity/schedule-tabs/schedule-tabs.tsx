@@ -4,8 +4,11 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 
-export const ScheduleTabs = () => {
-  const [value, setValue] = useState('one');
+export type TSheduleTabsProps = {
+  gameTypes: string[];
+}
+export const ScheduleTabs = ({gameTypes}: TSheduleTabsProps) => {
+  const [value, setValue] = useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -34,9 +37,12 @@ export const ScheduleTabs = () => {
             `}
       </style>
       <Tabs value={value} onChange={handleChange} indicatorColor='secondary'>
-        <Tab value='one' label='Все игры' onClick={handleClick} />
-        <Tab value='two' label='Городская мафия' onClick={handleClick} />
-        <Tab value='three' label='Спортивная мафия' onClick={handleClick} />
+        <>
+        {gameTypes.map((type, index) => (
+          <Tab value={index.toString()} label={type} onClick={handleClick} />
+        ))
+        }
+        </>
       </Tabs>
     </Box>
   );

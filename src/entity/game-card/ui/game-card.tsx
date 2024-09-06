@@ -1,7 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
 
 export type TGame = {
+  game: {
     start_time: string;
     date: string;
     game_kind: {
@@ -18,12 +22,13 @@ export type TGame = {
       telegram_id: number;
     }[];
     deletedAt: string | null;
+  }
 };
 
-export const GameCard = (props: {game: TGame}) => {
+export const GameCard = ({game}: TGame) => {
   const totalPlayersNumber =
-    props.game.registration_records.length +
-    props.game.registration_records.reduce(function (sum, currentSum) {
+   game.registration_records.length +
+    game.registration_records.reduce(function (sum, currentSum) {
       return sum + currentSum.referrals_amount;
     }, 0);
 
@@ -31,10 +36,12 @@ export const GameCard = (props: {game: TGame}) => {
     //confirm modal open, success modal open, button changes status and color if player is on game
     //if player not login redirect to login page
   };
-
+  
   return (
-    <Card>
-      <style type='text/css'>
+    <Row xs={1} md={2} className="g-4">
+      {Array.from({ length: 2 }).map((_, idx) => (
+        <Col key={idx}>
+          <style type='text/css'>
         {`
           .card-title {
             font-size: 1rem;
@@ -58,38 +65,59 @@ export const GameCard = (props: {game: TGame}) => {
               box-shadow: 2px 2px 2px black;
           }
               .btn:active {
-                background-color: #E2818A;
-                border: 1px solid #E2818A;
+                background-color: #FC411E;
+                border: 1px solid #FC411E;
               box-shadow: 2px 2px 2px black;
-
-              .btn-check {
-                background-color: #E2818A;
-                border: 1px solid #E2818A;
-              box-shadow: 2px 2px 2px black;
-          }
+              transform: scale(1.05);
+        }
 
           .btn:checked {
-                background-color: #E2818A;
-                border: 1px solid #E2818A;
+                background-color: #FC411E;
+                border: 1px solid #FC411E;
               box-shadow: 2px 2px 2px black;
+              transform: scale(1.05);
           }
 
               .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
-                background-color: #E2818A;
-                border: 1px solid #E2818A;
+                background-color: #FC411E;
+                border: 1px solid #FC411E;
               box-shadow: 2px 2px 2px black;
+              transform: scale(1.05);
+            }
+              
+           .card-img-top {
+              max-height: 250px;
+              object-fit: cover;
+              object-position: center;
+           }
+              
+            .rounded-circle {
+              height: 50px;
+              width: 50px;
+              object-fit: cover;
+              object-position: center;
+              margin: 10px 0; 
+            }
           `}
       </style>
-      <Card.Header>{props.game.game_kind.name}</Card.Header>
-      <Card.Body>
-        <Card.Title>{`${props.game.date} в ${props.game.start_time}`}</Card.Title>
-        <Card.Text>{props.game.address}</Card.Text>
-        <Card.Text>{`Число участников: ${totalPlayersNumber} из 10`}</Card.Text>
-        <Card.Text>{`Стоимость: ${props.game.cost} рублей`}</Card.Text>
-        <Button variant='primary' onClick={handleClick}>
-          Записаться
-        </Button>
-      </Card.Body>
-    </Card>
+          <Card>
+            <Card.Img variant="top" src="https://imageio.forbes.com/specials-images/imageserve/109687331/0x0.jpg?format=jpg&amp;height=491&amp;width=655&amp;fit=bounds" />
+            <Card.Body>
+              <Card.Title>{`${game.date} в ${game.start_time}`}</Card.Title>
+              <Card.Text>{game.address}</Card.Text>
+              <Card.Text>{`Число участников: ${totalPlayersNumber} из 10`}</Card.Text>
+              <Card.Text>{`Стоимость: ${game.cost} рублей`}</Card.Text>
+              <div>
+              <Image src='https://napresne.moscow/wp-content/uploads/sites/7/2021/10/guinea-pig-g2dbcb2c20_1920-768x510.jpg' roundedCircle />
+              </div>
+              <Button variant='primary' onClick={handleClick}>
+                Записаться
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}
+    </Row>
   );
-};
+}
+  

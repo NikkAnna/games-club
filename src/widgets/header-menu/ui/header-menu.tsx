@@ -6,7 +6,7 @@ import styles from './header-menu.module.css';
 export const HeaderMenu = () => (
   <Navbar bg='light' data-bs-theme='light' sticky='top' fixed='top'>
     <Container>
-      <Navbar.Brand href='/#about-us'>Na Bali Logo</Navbar.Brand>
+      <Navbar.Brand href='/#about-us'>logo</Navbar.Brand>
       <style type='text/css'>
           {`
           .nav-pills .nav-link.active {

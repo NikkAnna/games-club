@@ -3,50 +3,60 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
+import { TodayButton } from '../today-button';
 
-export const ScheduleHeaderItem = () => {
+type TScheduleHeaderItemProps = {
+    onChange?: (event: React.SyntheticEvent, value: number) =>  {};
+    onClick: () => void;
+    value: number;
+    dates: string[];
+}
+
+export const ScheduleHeaderItem = ({onChange, onClick, value, dates} : TScheduleHeaderItemProps) => {
     
-    const [value, setValue] = useState(0);
+    const [ivalue, setValue] = useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
+      console.log(newValue)
     };
-
-    const handleClick = () => {
-        
-    } 
   
     return (
-      <Box sx={{ maxWidth: '100%'}}>
+        <>
+        <style>
+        {` 
+            .MuiTabs-scrollButtons.Mui-disabled {
+                opacity: 0.3;
+            }
+        `
+        }
+        </style>
+      <Box sx={{ maxWidth: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr 10fr', alignItems: 'center' }}>
+      <TodayButton
+              onClick={onClick}
+              active={false}
+              children={'Все даты'}
+            />
+            <TodayButton
+              onClick={onClick}
+              active={false}
+              children={'Сегодня'}
+            />
         <Tabs
           value={value}
-          onChange={handleChange}
+          onChange={onChange}
           variant="scrollable"
           scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
         >
-          <Tab label="5.09 CP" onClick={handleClick}/>
-          <Tab label="Item Two" onClick={handleClick}/>
-          <Tab label="Item Three" onClick={handleClick}/>
-          <Tab label="Item Four" onClick={handleClick}/>
-          <Tab label="Item Five" onClick={handleClick}/>
-          <Tab label="Item Six" onClick={handleClick}/>
-          <Tab label="Item Seven" onClick={handleClick}/>
-          <Tab label="5.09 CP" onClick={handleClick}/>
-          <Tab label="Item Two" onClick={handleClick}/>
-          <Tab label="Item Three" onClick={handleClick}/>
-          <Tab label="Item Four" onClick={handleClick}/>
-          <Tab label="Item Five" onClick={handleClick}/>
-          <Tab label="Item Six" onClick={handleClick}/>
-          <Tab label="Item Seven" onClick={handleClick}/>
-          <Tab label="5.09 CP" onClick={handleClick}/>
-          <Tab label="Item Two" onClick={handleClick}/>
-          <Tab label="Item Three" onClick={handleClick}/>
-          <Tab label="Item Four" onClick={handleClick}/>
-          <Tab label="Item Five" onClick={handleClick}/>
-          <Tab label="Item Six" onClick={handleClick}/>
-          <Tab label="Item Seven" onClick={handleClick}/>
+        <>
+        {
+            dates.map((data) => (
+                <Tab label={data} onClick={onClick}/>
+            ))
+        }
+        </>
         </Tabs>
       </Box>
+      </>
     );
 };

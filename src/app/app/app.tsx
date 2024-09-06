@@ -71,9 +71,7 @@ const App = () => (
   <>
     <div className={styles.app}>
       <HeaderMenu />
-      <ScheduleTabs />
-      <ScheduleHeaderItem />
-      <TodayButton>Сегодня</TodayButton>
+      <GameSchedule />
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
