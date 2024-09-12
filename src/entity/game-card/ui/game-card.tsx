@@ -3,11 +3,11 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
+import { date } from '../../../shared/model/date-convert';
 
 export type TGame = {
   game: {
     start_time: string;
-    date: string;
     game_kind: {
       id: string;
       name: string;
@@ -22,12 +22,12 @@ export type TGame = {
       telegram_id: number;
     }[];
     deletedAt: string | null;
-  }
+  };
 };
 
-export const GameCard = ({game}: TGame) => {
+export const GameCard = ({ game }: TGame) => {
   const totalPlayersNumber =
-   game.registration_records.length +
+    game.registration_records.length +
     game.registration_records.reduce(function (sum, currentSum) {
       return sum + currentSum.referrals_amount;
     }, 0);
@@ -37,12 +37,11 @@ export const GameCard = ({game}: TGame) => {
     //if player not login redirect to login page
   };
   
+
   return (
-    <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 2 }).map((_, idx) => (
-        <Col key={idx}>
+    <>
           <style type='text/css'>
-        {`
+            {`
           .card-title {
             font-size: 1rem;
           }
@@ -99,25 +98,28 @@ export const GameCard = ({game}: TGame) => {
               margin: 10px 0; 
             }
           `}
-      </style>
+          </style>
           <Card>
-            <Card.Img variant="top" src="https://imageio.forbes.com/specials-images/imageserve/109687331/0x0.jpg?format=jpg&amp;height=491&amp;width=655&amp;fit=bounds" />
+            <Card.Img
+              variant='top'
+              src='https://imageio.forbes.com/specials-images/imageserve/109687331/0x0.jpg?format=jpg&amp;height=491&amp;width=655&amp;fit=bounds'
+            />
             <Card.Body>
-              <Card.Title>{`${game.date} в ${game.start_time}`}</Card.Title>
+              <Card.Title>{`${date(game.start_time).onlyDate} в ${date(game.start_time).time}`}</Card.Title>
               <Card.Text>{game.address}</Card.Text>
-              <Card.Text>{`Число участников: ${totalPlayersNumber} из 10`}</Card.Text>
+              <Card.Text>{`Число участников: ${totalPlayersNumber}`}</Card.Text>
               <Card.Text>{`Стоимость: ${game.cost} рублей`}</Card.Text>
               <div>
-              <Image src='https://napresne.moscow/wp-content/uploads/sites/7/2021/10/guinea-pig-g2dbcb2c20_1920-768x510.jpg' roundedCircle />
+                <Image
+                  src='https://napresne.moscow/wp-content/uploads/sites/7/2021/10/guinea-pig-g2dbcb2c20_1920-768x510.jpg'
+                  roundedCircle
+                />
               </div>
               <Button variant='primary' onClick={handleClick}>
                 Записаться
               </Button>
             </Card.Body>
           </Card>
-        </Col>
-      ))}
-    </Row>
+      </>
   );
-}
-  
+};

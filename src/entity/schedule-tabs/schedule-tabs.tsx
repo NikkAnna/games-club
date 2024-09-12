@@ -8,10 +8,12 @@ export type TSheduleTabsProps = {
   gameTypes: string[];
 }
 export const ScheduleTabs = ({gameTypes}: TSheduleTabsProps) => {
-  const [value, setValue] = useState('1');
+  const [value, setValue] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    console.log(newValue);
+    console.log(value);
   };
 
   const handleClick = () => {};
@@ -36,14 +38,12 @@ export const ScheduleTabs = ({gameTypes}: TSheduleTabsProps) => {
             }
             `}
       </style>
-      <Tabs value={value} onChange={handleChange} indicatorColor='secondary'>
-        <>
+        <Tabs value={value} onChange={handleChange} indicatorColor='secondary'>
         {gameTypes.map((type, index) => (
-          <Tab value={index.toString()} label={type} onClick={handleClick} />
-        ))
+          <Tab key={index} value={index} label={type} onClick={handleClick} />
+          ))
         }
-        </>
-      </Tabs>
+        </Tabs>
     </Box>
   );
 };

@@ -35,3 +35,10 @@
     color: white;
     border: 1px solid #FC411E;
 }
+
+.disabled {
+    pointer-events: none;
+    background: #575757;
+    color: white;
+    border: 1px solid #575757;
+}

@@ -2,6 +2,8 @@ import '../../index.css';
 
 import { PrimeReactContext, PrimeReactProvider } from 'primereact/api';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { getAllGamesThunk, getGamesSelector } from '../slices/gamesSlice';
+import { useDispatch, useSelector } from '../services/store';
 
 import { GameDay } from '../../features/game-day/ui';
 import { GameSchedule } from '../../widgets/game-schedule/ui/game-schedule';
@@ -10,28 +12,10 @@ import { Home } from '../../pages/home/home';
 import { ScheduleHeaderItem } from '../../entity/schedule-header';
 import { ScheduleTabs } from '../../entity/schedule-tabs';
 import { TodayButton } from '../../entity/today-button';
+import { getGamesApi } from '../../shared/api/games-api';
 import styles from './app.module.css';
+import { useEffect } from 'react';
 
-function dateConverter(a: number) {
-    const date = new Date(new Date().getTime() + (24 * 60 * 60 * 1000 * a));
-    const tday = date.getDate();
-    const tmonth = date.getMonth() + 1;
-
-    const editMonth = tmonth < 10 ? '0' + tmonth : tmonth;
-    const editDay = tday < 10 ? '0' + tday : tday;
-    const final = `${editDay}.${editMonth}`;
-    return final;
-}
-
-const dates: string[] = [
-    'Сегодня',
-    dateConverter(1),
-    dateConverter(2),
-    dateConverter(3),
-    dateConverter(4),
-    dateConverter(5),
-    dateConverter(6),
-]
 // import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 // import {
 //   ConstructorPage,
@@ -53,8 +37,9 @@ const dates: string[] = [
 // import { getOrderByNumber } from '../../slices/orderSlice';
 // import { getUser } from '../../slices/userSlice';
 
-const App = () => (
-  // const dispatch = useDispatch();
+const App = () => {
+  
+  const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const order = useSelector(getOrderByNumber);
   // const location = useLocation();
@@ -62,13 +47,11 @@ const App = () => (
   // const handleModalClose = (url: string) => navigate(url);
   // const backgroundLocation = location.state?.background;
 
-  // useEffect(() => {
-  //   dispatch(getIngredientsThunk());
-  //   dispatch(getFeedThunk());
-  //   dispatch(getUser());
-  // }, []);
+  useEffect(() => {
+    dispatch(getAllGamesThunk());
+  }, []);
 
-  <>
+  return (<>
     <div className={styles.app}>
       <HeaderMenu />
       <GameSchedule />
@@ -196,5 +179,5 @@ const App = () => (
         )} */}
     </div>
   </>
-);
+)};
 export default App;
