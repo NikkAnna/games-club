@@ -6,7 +6,7 @@ import Tabs from '@mui/material/Tabs';
 import { TodayButton } from '../today-button';
 
 type TScheduleHeaderItemProps = {
-  onChange?: (event: React.SyntheticEvent, value: number) => {};
+  onChange?: (event: React.SyntheticEvent, value: number) => void;
   onClickAllGames: () => void;
   onClickTodayGames: () => void;
   value: number;
@@ -14,13 +14,10 @@ type TScheduleHeaderItemProps = {
   disabled: boolean;
   allGamesActive: boolean;
   todayGamesActive: boolean;
-  onClick: () => void;
-  
 };
 
 export const ScheduleHeaderItem = ({
   onChange,
-  onClick,
   onClickAllGames,
   value,
   dates,
@@ -64,7 +61,7 @@ export const ScheduleHeaderItem = ({
         scrollButtons='auto'
       >
         {dates?.map((data, index) => (
-          <Tab key={index} label={data} onClick={onClick} />
+          <Tab key={index} label={data} />
         ))}
       </Tabs>
     </Box>

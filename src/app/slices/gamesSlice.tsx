@@ -1,31 +1,23 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient, TOrder } from '@utils-types';
 
-import { TGame } from '../../entity/game-card/ui/game-card';
+import { TGame } from '../../shared/types/types';
 import { getGamesApi } from '../../shared/api/games-api';
 import { v4 as uuidv4 } from 'uuid';
-
-// import {
-//   getOrderByNumberApi,
-//   getOrdersApi,
-//   orderBurgerApi
-// } from '../utils/burger-api';
-
-
 
 export type TGameState = {
   games: TGame[];
   loader: boolean;
   error: string | undefined;
-  gamesOnSelectedDate: TGame[] | null;
-  
+  selectedGames: TGame[] | null;
+  // gameTypes: string[];
 };
 
 export const initialState: TGameState = {
   games: [],
   loader: false,
   error: '',
-  gamesOnSelectedDate: null
+  selectedGames: null
 };
 
 export const getAllGamesThunk = createAsyncThunk(
@@ -52,44 +44,39 @@ const gamesSlice = createSlice({
   name: 'games',
   initialState,
   reducers: {
-    getGamesOnSelectedDate: {
-      reducer: (state, action) => {
-        const data = state.games.filter((game) => game.game.start_time === action.payload)
-        if (data) {
-        return data
-        }
+    getSelectedGames: (
+      state,
+      action: PayloadAction<{ date: string; type: string }>
+    ) => {
+      if (action.payload.date === 'Все даты' && action.payload.type === 'Все игры') {
+        state.selectedGames = state.games
+      } else if (action.payload.date === 'Все даты' && action.payload.type !== 'Все игры') 
+        {
+          state.selectedGames = state.games.filter(
+            (game) => game.game_kind.name === action.payload.type
+          );
+      } else if (action.payload.date !== 'Все даты' && action.payload.type !== 'Все игры') {
+        const selected = state.games.filter(
+          (game) => game.start_time === action.payload.date
+        );
+        state.selectedGames = selected.filter(
+          (game) => game.game_kind.name === action.payload.type
+        );
       }
-    },
-    // addMainsAndSaucesToOrder: {
-    //   reducer: (state, action: PayloadAction<TConstructorIngredient>) => {
-    //     state.mainsAndSaucesIngr.push(action.payload);
-    //   },
-    //   prepare: (ingredient: TIngredient) => {
-    //     const id = uuidv4();
-    //     return { payload: { ...ingredient, id } };
-    //   }
-    // },
-    // deleteIngredientInOrder: (
-    //   state,
-    //   action: PayloadAction<TConstructorIngredient>
-    // ) => {
-    //   state.mainsAndSaucesIngr = state.mainsAndSaucesIngr.filter(
-    //     (i) => i.id !== action.payload.id
-    //   );
-    // },
-    // resetJustDoneOrder: (state) => {
-    //   state.justDoneOrder = null;
-    // },
+    }
+
+    // getGamesTypes: (state) => {
+    //   const types = state.games.map((game) => game.game_kind.name)
+    //   state.gameTypes = types.filter((t, index) => types.indexOf(t) === index);
+    // }
   },
   selectors: {
-    // getComposedOrderIngredients: (state) =>
-      // state.composedOrderIngredients || [],
     getGamesSelector: (state) => state.games,
-    // getOrderMainAndSauces: (state) => state.mainsAndSaucesIngr,
-    // getReadyOrders: (state) => state.readyOrders,
-    // getLoader: (state) => state.loading,
-    // getJustDoneOrder: (state) => state.justDoneOrder,
-    // getOrderByNumber: (state) => state.orderByNumber
+    getSelectedGamesSelector: (state) => state.selectedGames,
+    getGamesTypesSelector: (state) => {
+      const types = state.games.map((game) => game.game_kind.name);
+      return types.filter((t, index) => types.indexOf(t) === index);
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -104,16 +91,14 @@ const gamesSlice = createSlice({
       .addCase(getAllGamesThunk.fulfilled, (state, action) => {
         state.loader = false;
         state.games = action.payload;
-        console.log(state.games)
-      })
+      });
   }
 });
 
 export const gamesReducer = gamesSlice.reducer;
-export const {
-  
-} = gamesSlice.actions;
+export const { getSelectedGames } = gamesSlice.actions;
 export const {
   getGamesSelector,
-
+  getSelectedGamesSelector,
+  getGamesTypesSelector
 } = gamesSlice.selectors;

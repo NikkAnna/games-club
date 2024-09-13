@@ -3,29 +3,14 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
+import { TGame } from '../../../shared/types/types';
 import { date } from '../../../shared/model/date-convert';
 
-export type TGame = {
-  game: {
-    start_time: string;
-    game_kind: {
-      id: string;
-      name: string;
-    };
-    id: string;
-    address: string;
-    cost: number;
-    registration_records: {
-      user_id: string;
-      referrals_amount: number;
-      nickname: string;
-      telegram_id: number;
-    }[];
-    deletedAt: string | null;
-  };
-};
+type TGameCardProps = {
+  game: TGame;
+}
 
-export const GameCard = ({ game }: TGame) => {
+export const GameCard = ({game}: TGameCardProps) => {
   const totalPlayersNumber =
     game.registration_records.length +
     game.registration_records.reduce(function (sum, currentSum) {

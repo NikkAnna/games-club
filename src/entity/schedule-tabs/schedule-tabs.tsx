@@ -6,16 +6,15 @@ import Tabs from '@mui/material/Tabs';
 
 export type TSheduleTabsProps = {
   gameTypes: string[];
-}
-export const ScheduleTabs = ({gameTypes}: TSheduleTabsProps) => {
-  const [value, setValue] = useState(0);
+  tabsOnChange: (event: React.SyntheticEvent, newValue: number) => void;
+  typesTabsActive: number;
+};
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-    console.log(newValue);
-    console.log(value);
-  };
-
+export const ScheduleTabs = ({
+  gameTypes,
+  tabsOnChange,
+  typesTabsActive
+}: TSheduleTabsProps) => {
   const handleClick = () => {};
 
   return (
@@ -38,12 +37,15 @@ export const ScheduleTabs = ({gameTypes}: TSheduleTabsProps) => {
             }
             `}
       </style>
-        <Tabs value={value} onChange={handleChange} indicatorColor='secondary'>
+      <Tabs
+        value={typesTabsActive}
+        onChange={tabsOnChange}
+        indicatorColor='secondary'
+      >
         {gameTypes.map((type, index) => (
           <Tab key={index} value={index} label={type} onClick={handleClick} />
-          ))
-        }
-        </Tabs>
+        ))}
+      </Tabs>
     </Box>
   );
 };

@@ -1,14 +1,17 @@
-import { GameCard, TGame } from '../../../entity/game-card/ui/game-card';
-import { useEffect, useState } from 'react';
+import {
+  getGamesSelector,
+  getGamesTypesSelector,
+  getSelectedGames,
+  getSelectedGamesSelector
+} from '../../../app/slices/gamesSlice';
+import { useDispatch, useSelector } from '../../../app/services/store';
+import { useEffect, useRef, useState } from 'react';
 
-import { GameDay } from '../../../features/game-day/ui';
+import { GameCard } from '../../../entity/game-card/ui/game-card';
 import { ScheduleHeaderItem } from '../../../entity/schedule-header';
 import { ScheduleTabs } from '../../../entity/schedule-tabs';
-import { TodayButton } from '../../../entity/today-button';
 import { date } from '../../../shared/model/date-convert';
-import { getGamesSelector } from '../../../app/slices/gamesSlice';
 import styles from './game-schedule.module.css';
-import { useSelector } from '../../../app/services/store';
 
 // const games = [
 //   {
@@ -74,126 +77,195 @@ import { useSelector } from '../../../app/services/store';
 // ];
 
 export const GameSchedule = () => {
-  const types = ['Все игры', 'Городская мафия', 'Спортивная мафия'];
-  const dates = [
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР',
-    '6.09 СР'
-  ];
-
-  const allGames = useSelector(getGamesSelector);
-  const todayGames = allGames.filter((game) => game.start_time === "2024-09-13T19:00:00")
+  const typeRef = useRef('');
+  const dateRef = useRef('');
   
+  const type = ['Все игры'];
+  const gameTypes = useSelector(getGamesTypesSelector);
+  const allTypes = [...type, ...gameTypes];
+  // const dates = [
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР',
+  //   '6.09 СР'
+  // ];
+  const dispatch = useDispatch();
+  const allGames = useSelector(getGamesSelector);
+  const todayGames = allGames.filter(
+    (game) =>
+      date(game.start_time).onlyDate === date(new Date().toISOString()).onlyDate
+  );
+  const selectedGames = useSelector(getSelectedGamesSelector);
+
   const gameDates = () => {
-    const games = allGames.filter((game) => game.start_time !== "2024-09-13T19:00:00") 
+    const games = allGames.filter(
+      (game) =>
+        date(game.start_time).onlyDate !==
+        date(new Date().toISOString()).onlyDate
+    );
 
     const gamesOnlyData = games.map((game) => {
       const gameDate = date(game.start_time).dateWithMinWeek;
       return gameDate;
-    })
+    });
 
     const gamesInitialData = games.map((game) => {
       const gameDate = game.start_time;
       return gameDate;
-    })
+    });
 
-    return {gamesOnlyData, gamesInitialData};
-    }
+    return { gamesOnlyData, gamesInitialData };
+  };
 
   const isGameToday = (): boolean => {
-    const gameToday = allGames.find((game) => game.start_time === "2024-09-13T19:00:00")
+    const gameToday = allGames.find((game) => {
+      if (date(game.start_time).onlyDate ===
+        date(new Date().toISOString()).onlyDate) {
+          return game
+        };
+    });
     if (gameToday) {
       return true;
     }
     return false;
   };
 
-  const [allGamesActive, setAllGamesActive] = useState(true);
+  const [typesTabsActive, setTypesTabsActive] = useState(0);
+
+  const [allGamesActive, setAllDatesActive] = useState(true);
   const [todayGamesActive, setTodayGamesActive] = useState(false);
   const [tabActive, setTabActive] = useState(0);
 
   useEffect(() => {
     setTabActive(-1);
+    dateRef.current = 'Все даты';
+    setTypesTabsActive(0);
+    typeRef.current = 'Все игры';
   }, []);
 
-  
-  const handleClickAllGames = () => {
-    setAllGamesActive(true);
+  const handleChangeTypesTabs = (
+    event: React.SyntheticEvent,
+    newValue: number
+  ) => {
+    setTypesTabsActive(newValue);
+    const selectedType = allTypes[newValue];
+    dispatch(getSelectedGames({date: dateRef.current, type: selectedType}));
+    typeRef.current = selectedType
+    console.log(dateRef.current)
+    console.log(typeRef.current)
+  };
+
+  const handleClickAllDates = () => {
+    setAllDatesActive(true);
     setTabActive(-1);
     setTodayGamesActive(false);
+    dateRef.current = 'Все даты';
+    console.log(dateRef.current)
+    console.log(typeRef.current)
   };
 
   const handleClickTodayGames = () => {
-    setAllGamesActive(false);
+    setAllDatesActive(false);
     setTabActive(-1);
     setTodayGamesActive(true);
-    
+    dateRef.current = todayGames[0].start_time
+    console.log(dateRef.current)
+    console.log(typeRef.current)
   };
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChangeDateTabs = (event: React.SyntheticEvent, newValue: number) => {
     setTabActive(newValue);
-    setAllGamesActive(false);
+    setAllDatesActive(false);
     setTodayGamesActive(false);
 
     const date = gameDates().gamesInitialData;
     const selectedDate = date[newValue];
-    console.log(selectedDate);
-    
+    dispatch(getSelectedGames({date: selectedDate, type: typeRef.current}));
+    dateRef.current = selectedDate;
+    console.log(dateRef.current)
+    console.log(typeRef.current)
   };
 
   return (
     <div className={styles.headerContainer}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Расписание игр</h2>
-        <ScheduleTabs gameTypes={types} />
+        <ScheduleTabs
+          gameTypes={allTypes}
+          typesTabsActive={typesTabsActive}
+          tabsOnChange={handleChangeTypesTabs}
+        />
         <ScheduleHeaderItem
-          onClickAllGames={handleClickAllGames}
+          onClickAllGames={handleClickAllDates}
           allGamesActive={allGamesActive}
           onClickTodayGames={handleClickTodayGames}
           todayGamesActive={todayGamesActive}
           value={tabActive}
           dates={gameDates().gamesOnlyData}
-          onChange={handleChange}
+          onChange={handleChangeDateTabs}
           disabled={!isGameToday()}
         />
 
-        {allGamesActive && <div className={styles.cardsContainer}>
-          {allGames.map((game, index) => (
-            <div key={index} className={styles.card}>
-              <GameCard game={game} />
-            </div>
-          ))}
-        </div>}
+        {/* {allGamesActive && (
+          <div className={styles.cardsContainer}>
+            {allGames.map((game, index) => (
+              <div key={index} className={styles.card}>
+                <GameCard game={game} />
+              </div>
+            ))}
+          </div>
+        )} */}
 
-        {todayGamesActive && <div className={styles.cardsContainer}>
-          {todayGames.map((game, index) => (
-            <div key={index} className={styles.card}>
-              <GameCard game={game} />
-            </div>
-          ))}
-        </div>}
+        {/* {typesTabsActive && allGamesActive && ( */}
+          <div className={styles.cardsContainer}>
+            {selectedGames?.map((game, index) => (
+              <div key={index} className={styles.card}>
+                <GameCard game={game} />
+              </div>
+            ))}
+          </div>
+        {/* )} */}
+
+        {/* {todayGamesActive && (
+          <div className={styles.cardsContainer}>
+            {selectedGames?.map((game, index) => (
+              <div key={index} className={styles.card}>
+                <GameCard game={game} />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {!allGamesActive && !todayGamesActive && (
+          <div className={styles.cardsContainer}>
+            {selectedGames?.map((game, index) => (
+              <div key={index} className={styles.card}>
+                <GameCard game={game} />
+              </div>
+            ))}
+          </div>
+        )} */}
       </div>
     </div>
   );

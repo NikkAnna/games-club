@@ -1,6 +1,6 @@
 import { deleteCookie, getCookie, setCookie } from '../../utils/cookie';
 
-import { TGame } from '../../entity/game-card/ui/game-card';
+import { TGame } from '../../shared/types/types';
 
 const URL = process.env.GAMES_API_URL;
 
