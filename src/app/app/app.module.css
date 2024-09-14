@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column;
   color: #f2f2f3;
-  background: linear-gradient(179deg, #000000, #343b3f);
-  background-size: 400% 400%;
-  animation: bg-gradient 32s ease infinite;
   padding: 10px 30px;
+  height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -29,8 +27,3 @@
   text-align: center;
 }
 
-@keyframes bg-gradient {
-  0%{background-position:50% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:50% 0%}
-}

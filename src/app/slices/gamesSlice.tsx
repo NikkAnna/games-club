@@ -48,14 +48,29 @@ const gamesSlice = createSlice({
       state,
       action: PayloadAction<{ date: string; type: string }>
     ) => {
-      if (action.payload.date === 'Все даты' && action.payload.type === 'Все игры') {
-        state.selectedGames = state.games
-      } else if (action.payload.date === 'Все даты' && action.payload.type !== 'Все игры') 
-        {
-          state.selectedGames = state.games.filter(
-            (game) => game.game_kind.name === action.payload.type
-          );
-      } else if (action.payload.date !== 'Все даты' && action.payload.type !== 'Все игры') {
+      if (
+        action.payload.date === 'Все даты' &&
+        action.payload.type === 'Все игры'
+      ) {
+        state.selectedGames = state.games;
+      } else if (
+        action.payload.date === 'Все даты' &&
+        action.payload.type !== 'Все игры'
+      ) {
+        state.selectedGames = state.games.filter(
+          (game) => game.game_kind.name === action.payload.type
+        );
+      } else if (
+        action.payload.date !== 'Все даты' &&
+        action.payload.type === 'Все игры'
+      ) {
+        state.selectedGames = state.games.filter(
+          (game) => game.start_time === action.payload.date
+        );
+      } else if (
+        action.payload.date !== 'Все даты' &&
+        action.payload.type !== 'Все игры'
+      ) {
         const selected = state.games.filter(
           (game) => game.start_time === action.payload.date
         );
@@ -76,7 +91,8 @@ const gamesSlice = createSlice({
     getGamesTypesSelector: (state) => {
       const types = state.games.map((game) => game.game_kind.name);
       return types.filter((t, index) => types.indexOf(t) === index);
-    }
+    },
+    getLoaderSelector: (state) => state.loader,
   },
   extraReducers: (builder) => {
     builder
@@ -100,5 +116,6 @@ export const { getSelectedGames } = gamesSlice.actions;
 export const {
   getGamesSelector,
   getSelectedGamesSelector,
-  getGamesTypesSelector
+  getGamesTypesSelector,
+  getLoaderSelector
 } = gamesSlice.selectors;

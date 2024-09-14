@@ -20,6 +20,14 @@
     margin: 20px 0;
 }
 
+.cardOneContainer {
+    display: grid;
+    grid-template-columns: minmax(450px, 750px);
+    grid-template-rows: auto;
+    margin: 20px 0;
+    justify-content: center;
+}
+
 .card {
 }
 
