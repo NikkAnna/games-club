@@ -13,9 +13,10 @@ import { NoGameBunner } from '../../../entity/no-games-banner/ui';
 import { Preloader } from '../../../entity/preloader/ui';
 import { ScheduleHeaderItem } from '../../../entity/schedule-header';
 import { ScheduleTabs } from '../../../entity/schedule-tabs';
-import cn from 'classnames';
+
 import { date } from '../../../shared/model/date-convert';
 import styles from './game-schedule.module.css';
+import cn from 'classnames';
 
 // const games = [
 //   {
@@ -173,7 +174,6 @@ export const GameSchedule = () => {
     dispatch(getSelectedGames({ date: 'Все даты', type: 'Все игры' }));
     typeRef.current = 'Все игры';
     dateRef.current = 'Все даты';
-    // setHasSelectedGames(true);
   }, []);
 
   const selectedGames = useSelector(getSelectedGamesSelector);
@@ -228,23 +228,6 @@ export const GameSchedule = () => {
     dateRef.current = selectedDate;
   };
 
-  // const [hasAllGames, setHasAllGames] = useState(true);
-  // const [hasSelectedGames, setHasSelectedGames] = useState(true);
-
-  // useEffect(() => {
-  //   // if (allGames?.length === 0) {
-  //   //   setHasAllGames(false);
-  //   // } else {
-  //   //   setHasAllGames(true);
-  //   // }
-
-  //   if (selectedGames?.length === 0) {
-  //     setHasSelectedGames(false);
-  //   } else {
-  //     setHasSelectedGames(true);
-  //   }
-  // }, [selectedGames]);
-
   return (
     <div className={styles.headerContainer}>
       <div className={styles.wrapper}>
@@ -273,7 +256,7 @@ export const GameSchedule = () => {
                 : styles.cardsContainer
             }
           >
-            {selectedGames?.map((game, index) => (
+            {allGames.map((game, index) => (
               <div key={index} className={styles.card}>
                 <GameCard game={game} />
               </div>
@@ -329,7 +312,10 @@ export const GameSchedule = () => {
           </div>
         )}
 
-        {!selectedGames?.length && !loader && <NoGameBunner />}
+        {!selectedGames?.length &&
+          !loader &&
+          !allDatesActive &&
+          !allTypesOfGamesActive && <NoGameBunner />}
 
         {loader && <Preloader />}
       </div>
