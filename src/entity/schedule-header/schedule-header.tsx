@@ -32,6 +32,12 @@ export const ScheduleHeaderItem = ({
             .MuiTabs-scrollButtons.Mui-disabled {
                 opacity: 0.3;
             }
+
+            .MuiButtonBase-root {
+                font-size: clamp(0.5625rem, 0.4583rem + 0.4444vw, 0.875rem);
+              }
+            
+            }
         `}
     </style>
     <Box
@@ -58,7 +64,6 @@ export const ScheduleHeaderItem = ({
         value={value}
         onChange={onChange}
         variant='scrollable'
-        scrollButtons='auto'
       >
         {dates?.map((data, index) => (
           <Tab key={index} label={data} />

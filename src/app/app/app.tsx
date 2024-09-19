@@ -17,6 +17,7 @@ import { TodayButton } from '../../entity/today-button';
 import { getGamesApi } from '../../shared/api/games-api';
 import styles from './app.module.css';
 import { useEffect } from 'react';
+import { BurgerMenu } from '../../widgets/burger-menu/ui/burger-menu';
 
 // import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 // import {

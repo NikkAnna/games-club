@@ -6,7 +6,7 @@
 .wrapper {
   margin-top: 30px;
   padding: 20px 40px 40px 40px;
-  font-size: 65px;
+  font-size: clamp(1.5625rem, 0.7292rem + 3.5556vw, 4.0625rem);
   font-family: 'Monoton', cursive;
   text-align: center;
   text-transform: uppercase;
@@ -54,5 +54,12 @@
   19%,22.99%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% { 
     opacity:0.4; 
     text-shadow: none; 
+  }
+}
+
+@media screen and (width <= 630px) {
+  .wrapper {
+    margin-top: 15px;
+    padding: 0 40px 40px 40px;
   }
 }

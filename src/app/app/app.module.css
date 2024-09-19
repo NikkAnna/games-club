@@ -27,3 +27,8 @@
   text-align: center;
 }
 
+@media screen and (width <= 1024px) {
+  .app {
+    padding: 10px 0;
+  }
+}

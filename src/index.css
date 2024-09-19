@@ -1,8 +1,9 @@
 body {
-  margin: 0;
-  background: linear-gradient(179deg, #000000, #343b3f);
-  background-size: 400% 400%;
-  animation: bg-gradient 32s ease infinite;
+  margin: 0 auto;
+  background: linear-gradient(179deg, #000000, #180b0b);
+  background-size:500% 500%;
+  animation: bg-gradient 40s ease infinite;
+  max-width: 1500px;
 }
 
 @keyframes bg-gradient {

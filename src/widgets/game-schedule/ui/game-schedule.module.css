@@ -6,6 +6,7 @@
 
 .title {
     margin: 0 0 0 0;
+    font-size: clamp(1.625rem, 1.5rem + 0.5333vw, 2rem);
 }
 
 .headerContainer {
@@ -26,6 +27,16 @@
     grid-template-rows: auto;
     margin: 20px 0;
     justify-content: center;
+}
+
+@media screen and (width <= 1024px){
+    .cardsContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .cardOneContainer {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card {

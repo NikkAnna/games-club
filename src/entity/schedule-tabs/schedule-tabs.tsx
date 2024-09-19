@@ -18,9 +18,11 @@ export const ScheduleTabs = ({
   const handleClick = () => {};
 
   return (
+    <div>
     <Box sx={{ width: '100%' }}>
       <style>
         {`
+
             .MuiTab-root {
                 color: white;
             }
@@ -41,11 +43,14 @@ export const ScheduleTabs = ({
         value={typesTabsActive}
         onChange={tabsOnChange}
         indicatorColor='secondary'
+        variant='scrollable'
+        sx={{}}
       >
         {gameTypes.map((type, index) => (
           <Tab key={index} value={index} label={type} onClick={handleClick} />
         ))}
       </Tabs>
     </Box>
+    </div>
   );
 };
