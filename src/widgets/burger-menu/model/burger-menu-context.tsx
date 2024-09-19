@@ -11,7 +11,7 @@ export const MenuContext = createContext<TMenuContext>({
 });
 
 type TMenuState = {
-  children: ReactElement[];
+  children: ReactElement | ReactElement[];
 };
 
 export const MenuState = (props: TMenuState) => {
