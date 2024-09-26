@@ -60,14 +60,8 @@ export const ScheduleHeaderItem = ({
         children={'Сегодня'}
         disabled={disabled}
       />
-      <Tabs
-        value={value}
-        onChange={onChange}
-        variant='scrollable'
-      >
-        {dates?.map((data, index) => (
-          <Tab key={index} label={data} />
-        ))}
+      <Tabs value={value} onChange={onChange} variant='scrollable'>
+        {dates?.map((data, index) => <Tab key={index} label={data} />)}
       </Tabs>
     </Box>
   </>

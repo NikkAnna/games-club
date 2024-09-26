@@ -1,13 +1,19 @@
 body {
   margin: 0 auto;
   background: linear-gradient(179deg, #000000, #180b0b);
-  background-size:500% 500%;
+  background-size: 500% 500%;
   animation: bg-gradient 40s ease infinite;
   max-width: 1500px;
 }
 
 @keyframes bg-gradient {
-  0%{background-position:50% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:50% 0%}
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }

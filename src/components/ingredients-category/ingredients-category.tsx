@@ -1,44 +1,44 @@
-import { forwardRef, useMemo } from 'react';
-import { getOrderBun, getOrderMainAndSauces } from '../../slices/orderSlice';
+// import { forwardRef, useMemo } from 'react';
+// import { getOrderBun, getOrderMainAndSauces } from '../../slices/orderSlice';
 
-import { IngredientsCategoryUI } from '../ui/ingredients-category';
-import { TIngredient } from '@utils-types';
-import { TIngredientsCategoryProps } from './type';
-import { useSelector } from '../../services/store';
+// import { IngredientsCategoryUI } from '../ui/ingredients-category';
+// import { TIngredient } from '@utils-types';
+// import { TIngredientsCategoryProps } from './type';
+// import { useSelector } from '../../services/store';
 
-export const IngredientsCategory = forwardRef<
-  HTMLUListElement,
-  TIngredientsCategoryProps
->(({ title, titleRef, ingredients, ...rest }, ref) => {
-  const bunInOrder = useSelector(getOrderBun);
-  const ingredientsInOrder = useSelector(getOrderMainAndSauces);
+// export const IngredientsCategory = forwardRef<
+//   HTMLUListElement,
+//   TIngredientsCategoryProps
+// >(({ title, titleRef, ingredients, ...rest }, ref) => {
+//   const bunInOrder = useSelector(getOrderBun);
+//   const ingredientsInOrder = useSelector(getOrderMainAndSauces);
 
-  const burgerConstructor = {
-    bun: {
-      _id: bunInOrder?._id || ''
-    },
-    ingredients: ingredientsInOrder
-  };
+//   const burgerConstructor = {
+//     bun: {
+//       _id: bunInOrder?._id || ''
+//     },
+//     ingredients: ingredientsInOrder
+//   };
 
-  const ingredientsCounters = useMemo(() => {
-    const { bun, ingredients } = burgerConstructor;
-    const counters: { [key: string]: number } = {};
-    ingredients.forEach((ingredient: TIngredient) => {
-      if (!counters[ingredient._id]) counters[ingredient._id] = 0;
-      counters[ingredient._id]++;
-    });
-    if (bun) counters[bun._id] = 2;
-    return counters;
-  }, [burgerConstructor]);
+//   const ingredientsCounters = useMemo(() => {
+//     const { bun, ingredients } = burgerConstructor;
+//     const counters: { [key: string]: number } = {};
+//     ingredients.forEach((ingredient: TIngredient) => {
+//       if (!counters[ingredient._id]) counters[ingredient._id] = 0;
+//       counters[ingredient._id]++;
+//     });
+//     if (bun) counters[bun._id] = 2;
+//     return counters;
+//   }, [burgerConstructor]);
 
-  return (
-    <IngredientsCategoryUI
-      title={title}
-      titleRef={titleRef}
-      ingredients={ingredients}
-      ingredientsCounters={ingredientsCounters}
-      ref={ref}
-      {...rest}
-    />
-  );
-});
+//   return (
+//     <IngredientsCategoryUI
+//       title={title}
+//       titleRef={titleRef}
+//       ingredients={ingredients}
+//       ingredientsCounters={ingredientsCounters}
+//       ref={ref}
+//       {...rest}
+//     />
+//   );
+// });

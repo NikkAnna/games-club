@@ -1,54 +1,52 @@
 {
-    "status": 200,
-    "result": {
-      "data": [
-        {
+  "status": 200,
+  "result": {
+    "data": [
+      {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "address": "string",
+        "start_time": "2024-09-03T18:07:44.865Z",
+        "game_kind": {
           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-          "address": "string",
-          "start_time": "2024-09-03T18:07:44.865Z",
-          "game_kind": {
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "name": "string"
-          },
-          "cost": 0,
-          "registration_records": [
-            {
-              "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-              "nickname": "string",
-              "telegram_id": 0,
-              "referrals_amount": 0
-            }
-          ],
-          "deleted_at": null
+          "name": "string"
         },
-        {
+        "cost": 0,
+        "registration_records": [
+          {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "nickname": "string",
+            "telegram_id": 0,
+            "referrals_amount": 0
+          }
+        ],
+        "deleted_at": null
+      },
+      {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "address": null,
+        "start_time": null,
+        "game_kind": {
           "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-          "address": null,
-          "start_time": null,
-          "game_kind": {
-            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "name": "string"
-          },
-          "cost": 0,
-          "registration_records": [
-            {
-              "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-              "nickname": "string",
-              "telegram_id": 0,
-              "referrals_amount": 0
-            }
-          ],
-          "deleted_at": "2024-09-03T18:07:44.865Z",
-          "players": [
-            "string"
-          ]
-        }
-      ],
-      "pagination": {
-        "offset": 0,
-        "limit": 0,
-        "total": 0,
-        "order": "ASC"
+          "name": "string"
+        },
+        "cost": 0,
+        "registration_records": [
+          {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "nickname": "string",
+            "telegram_id": 0,
+            "referrals_amount": 0
+          }
+        ],
+        "deleted_at": "2024-09-03T18:07:44.865Z",
+        "players": ["string"]
       }
+    ],
+    "pagination": {
+      "offset": 0,
+      "limit": 0,
+      "total": 0,
+      "order": "ASC"
     }
   }
+}

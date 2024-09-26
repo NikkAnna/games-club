@@ -28,5 +28,6 @@
       "@selectors": ["src/services/selectors"]
     }
   },
+  "outDir": "./dist/",
   "include": ["src"]
 }

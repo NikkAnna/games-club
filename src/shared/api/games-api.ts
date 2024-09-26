@@ -59,17 +59,20 @@ export const fetchWithRefresh = async <T>(
 };
 
 type TGamesResponse = TServerResponse<{
-    status: number;
-    result: {
-        data: TGame[];
-    }
+  status: number;
+  result: {
+    data: TGame[];
+  };
 }>;
 
-export const getGamesApi = () => 
-  fetch(`${URL}games/?deleted=false&start_time__ge=${new Date().toISOString().slice(0, -1)}&order=ASC`)
+export const getGamesApi = () =>
+  fetch(
+    `${URL}games/?deleted=false&start_time__ge=${new Date().toISOString().slice(0, -1)}&order=ASC`
+  )
     .then((res) => checkResponse<TGamesResponse>(res))
     .then((data) => {
-      if (data.status === 200) {return data.result.data;}
+      if (data.status === 200) {
+        return data.result.data;
+      }
       return Promise.reject(data);
     });
-

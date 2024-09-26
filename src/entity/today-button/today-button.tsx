@@ -12,14 +12,18 @@ export const TodayButton = ({
   onClick,
   active,
   children,
-  disabled,
+  disabled
 }: TTodayButtonProps) => (
   <>
     <div>
       <button
         type='button'
         onClick={onClick}
-        className={cn(styles.button, active ? styles.active : '', disabled ? styles.disabled : '')}
+        className={cn(
+          styles.button,
+          active ? styles.active : '',
+          disabled ? styles.disabled : ''
+        )}
       >
         {children}
       </button>

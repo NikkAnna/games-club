@@ -9,15 +9,7 @@ export const date = (date: string) => {
     'Суббота'
   ];
 
-  const daysOfWeekMin = [
-    'ВС',
-    'ПН',
-    'ВТ',
-    'СР',
-    'ЧТ',
-    'ПТ',
-    'СБ'
-  ];
+  const daysOfWeekMin = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 
   const dateFormat = Date.parse(date);
   const newDate = new Date(dateFormat);

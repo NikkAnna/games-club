@@ -1,57 +1,56 @@
 .button {
-    display: block;
-    transform-origin: 16px 11px;
-    float: left;
-    outline: 0;
-    border: 0;
-    padding: 12px;
-    background: none;
-    height: clamp(2.875rem, 2.1796rem + 1.4085vw, 3.5rem);
+  display: block;
+  transform-origin: 16px 11px;
+  float: left;
+  outline: 0;
+  border: 0;
+  padding: 12px;
+  background: none;
+  height: clamp(2.875rem, 2.1796rem + 1.4085vw, 3.5rem);
 }
 
 .span {
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    display: block;
-    width: 40px;
-    height: 5px;
-    margin-bottom: 7px;
-    background-color: #000;
-  }
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 7px;
+  background-color: #000;
+}
 
-  .span:nth-of-type(2) {
-    background-color: #FC411E;
-  }
+.span:nth-of-type(2) {
+  background-color: #fc411e;
+}
 
+.button:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
 
-  .button:focus {
-    border: none;
-    box-shadow: none;
-    outline: none;
-  }
+.button:hover .span:nth-of-type(1) {
+  width: 33px;
+}
 
-  .button:hover .span:nth-of-type(1) {
-    width: 33px;
-  }
+.button:hover .span:nth-of-type(2) {
+  width: 40px;
+}
 
-  .button:hover .span:nth-of-type(2) {
-    width: 40px;
-  }
+.button:hover .span:nth-of-type(3) {
+  width: 30px;
+}
 
-  .button:hover .span:nth-of-type(3) {
-    width: 30px;
-  }
+.button.active .span:nth-of-type(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+  width: 40px;
+}
 
-  .button.active .span:nth-of-type(1) {
-    transform: rotate(45deg) translate(10px, 10px);
-    width: 40px;
-  }
+.button.active .span:nth-of-type(2) {
+  opacity: 0;
+  pointer-events: none;
+}
 
-  .button.active .span:nth-of-type(2) {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .button.active .span:nth-of-type(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-    width: 40px;
-  }
+.button.active .span:nth-of-type(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+  width: 40px;
+}

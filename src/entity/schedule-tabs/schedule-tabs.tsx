@@ -19,9 +19,9 @@ export const ScheduleTabs = ({
 
   return (
     <div>
-    <Box sx={{ width: '100%' }}>
-      <style>
-        {`
+      <Box sx={{ width: '100%' }}>
+        <style>
+          {`
 
             .MuiTab-root {
                 color: white;
@@ -38,19 +38,19 @@ export const ScheduleTabs = ({
                 background-color: #FC411E;
             }
             `}
-      </style>
-      <Tabs
-        value={typesTabsActive}
-        onChange={tabsOnChange}
-        indicatorColor='secondary'
-        variant='scrollable'
-        sx={{}}
-      >
-        {gameTypes.map((type, index) => (
-          <Tab key={index} value={index} label={type} onClick={handleClick} />
-        ))}
-      </Tabs>
-    </Box>
+        </style>
+        <Tabs
+          value={typesTabsActive}
+          onChange={tabsOnChange}
+          indicatorColor='secondary'
+          variant='scrollable'
+          sx={{}}
+        >
+          {gameTypes.map((type, index) => (
+            <Tab key={index} value={index} label={type} onClick={handleClick} />
+          ))}
+        </Tabs>
+      </Box>
     </div>
   );
 };

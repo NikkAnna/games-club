@@ -107,7 +107,8 @@
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier ./src --write",
     "cypress:open": "cypress open",
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack --config webpack.config.js --env env=prod --mode=production"
   },
   "eslintConfig": {
     "extends": [

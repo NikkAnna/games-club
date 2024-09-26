@@ -1,61 +1,57 @@
 .button {
-    width: 100px;
-    border-radius: 10px;
-    color: #575757;
-    background: white;
-    border: 1px solid white;
-    text-transform: uppercase;
-    padding: 5px 15px;
-    font-size: clamp(0.375rem, 0.2083rem + 0.7111vw, 0.875rem);
-    margin: 0 5px 0 0;
+  width: 100px;
+  border-radius: 10px;
+  color: #575757;
+  background: white;
+  border: 1px solid white;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  font-size: clamp(0.375rem, 0.2083rem + 0.7111vw, 0.875rem);
+  margin: 0 5px 0 0;
 }
 
-
-
-
-.button:hover {   
-    background: #FC411E;
-    color: white;
-    border: 1px solid #FC411E;
+.button:hover {
+  background: #fc411e;
+  color: white;
+  border: 1px solid #fc411e;
 }
 
-.button:active {   
-    background: #FC411E;
-    color: white;
-    border: 1px solid #FC411E;
-    transform: scale(1.05);
+.button:active {
+  background: #fc411e;
+  color: white;
+  border: 1px solid #fc411e;
+  transform: scale(1.05);
 }
 
 .button:focus-visible {
-    background: #FC411E;
-    color: white;
-    border: 1px solid #FC411E;
-    box-shadow: 0 0 0.25rem #FC411E;
-    outline: 1px solid white;
+  background: #fc411e;
+  color: white;
+  border: 1px solid #fc411e;
+  box-shadow: 0 0 0.25rem #fc411e;
+  outline: 1px solid white;
 }
 
 .active {
-    background: #FC411E;
-    color: white;
-    border: 1px solid #FC411E;
+  background: #fc411e;
+  color: white;
+  border: 1px solid #fc411e;
 }
 
 .disabled {
-    pointer-events: none;
-    background: #575757;
-    color: white;
-    border: 1px solid #575757;
+  pointer-events: none;
+  background: #575757;
+  color: white;
+  border: 1px solid #575757;
 }
 
-
 @media screen and (width <= 780px) {
-    .button {
-        width: 75px;
-    }
+  .button {
+    width: 75px;
+  }
 }
 
 @media screen and (width <= 430px) {
-    .button {
-        width: 65px;
-    }
+  .button {
+    width: 65px;
+  }
 }

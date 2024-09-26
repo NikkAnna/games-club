@@ -2,10 +2,10 @@ import '../../index.css';
 
 import { PrimeReactContext, PrimeReactProvider } from 'primereact/api';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { getAllGamesThunk, getGamesSelector, } from '../slices/gamesSlice';
+import { getAllGamesThunk, getGamesSelector } from '../slices/gamesSlice';
 import { useDispatch, useSelector } from '../services/store';
 
-import { GameDay } from '../../features/game-day/ui';
+// import { GameDay } from '../../features/game-day/ui';
 import { GameSchedule } from '../../widgets/game-schedule/ui/game-schedule';
 import { HeaderMenu } from '../../widgets/header-menu/ui/header-menu';
 import { Home } from '../../pages/home/home';
@@ -41,7 +41,6 @@ import { BurgerMenu } from '../../widgets/burger-menu/ui/burger-menu';
 // import { getUser } from '../../slices/userSlice';
 
 const App = () => {
-  
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const order = useSelector(getOrderByNumber);
@@ -54,14 +53,15 @@ const App = () => {
     dispatch(getAllGamesThunk());
   }, []);
 
-  return (<>
-    <div className={styles.app}>
-      <HeaderMenu />
-      <GameSchedule />
-      <Routes>
-        <Route path='/' element={<Home />} />
-      </Routes>
-      {/* <AppHeader />
+  return (
+    <>
+      <div className={styles.app}>
+        <HeaderMenu />
+        <GameSchedule />
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+        {/* <AppHeader />
         <Routes location={backgroundLocation || location}>
           <Route path='*' element={<NotFound404 />} />
           <Route path='/' element={<ConstructorPage />} />
@@ -180,7 +180,8 @@ const App = () => {
             />
           </Routes>
         )} */}
-    </div>
-  </>
-)};
+      </div>
+    </>
+  );
+};
 export default App;
