@@ -24,7 +24,7 @@ export const ScheduleTabs = ({
           {`
 
             .MuiTab-root {
-                color: white;
+                color: #000;
             }
 
             .MuiTab-root:hover {
@@ -32,10 +32,13 @@ export const ScheduleTabs = ({
             }
 
             .MuiTab-root.Mui-selected {
-                color: #FC411E;
+                color: #fff;
+                background-color: #FC411E;
+                border-radius: 15px;
+
             }
             .MuiTabs-indicator {
-                background-color: #FC411E;
+                background-color: transparent;
             }
             `}
         </style>
@@ -47,7 +50,16 @@ export const ScheduleTabs = ({
           sx={{}}
         >
           {gameTypes.map((type, index) => (
-            <Tab key={index} value={index} label={type} onClick={handleClick} />
+            <Tab
+              key={index}
+              value={index}
+              label={type}
+              onClick={handleClick}
+              sx={{
+                fontSize: 'clamp(0.5625rem, 0.4583rem + 0.4444vw, 0.875rem)',
+                fontFamily: 'cursive'
+              }}
+            />
           ))}
         </Tabs>
       </Box>

@@ -1,7 +1,7 @@
 .app {
   display: flex;
   flex-direction: column;
-  color: #f2f2f3;
+  color: #000000;
   padding: 10px 30px;
   height: 100vh;
 }

@@ -1,13 +1,14 @@
 .button {
-  width: 100px;
+  width: 110px;
   border-radius: 10px;
-  color: #575757;
+  color: #000;
   background: white;
-  border: 1px solid white;
+  border: 1px solid #575757;
   text-transform: uppercase;
   padding: 5px 15px;
   font-size: clamp(0.375rem, 0.2083rem + 0.7111vw, 0.875rem);
   margin: 0 5px 0 0;
+  font-family: cursive;
 }
 
 .button:hover {

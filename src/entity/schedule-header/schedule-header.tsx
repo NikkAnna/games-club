@@ -33,11 +33,14 @@ export const ScheduleHeaderItem = ({
                 opacity: 0.3;
             }
 
-            .MuiButtonBase-root {
+            .MuiButtonBase-root .MuiTab-root {
                 font-size: clamp(0.5625rem, 0.4583rem + 0.4444vw, 0.875rem);
               }
-            
+
+            .css-19wsa2m-MuiButtonBase-root-MuiTab-root {
             }
+            
+            
         `}
     </style>
     <Box
@@ -45,7 +48,8 @@ export const ScheduleHeaderItem = ({
         maxWidth: '100%',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr 10fr',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: '15px',
       }}
     >
       <TodayButton
@@ -61,7 +65,17 @@ export const ScheduleHeaderItem = ({
         disabled={disabled}
       />
       <Tabs value={value} onChange={onChange} variant='scrollable'>
-        {dates?.map((data, index) => <Tab key={index} label={data} />)}
+        {dates?.map((data, index) => (
+          <Tab
+            key={index}
+            label={data}
+            sx={{
+              maxWidth: '90px',
+              fontSize: 'clamp(0.5625rem, 0.4583rem + 0.4444vw, 0.875rem)',
+              fontFamily: 'Monoton, cursive'
+            }}
+          />
+        ))}
       </Tabs>
     </Box>
   </>

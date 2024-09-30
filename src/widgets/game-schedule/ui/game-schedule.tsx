@@ -132,7 +132,7 @@ export const GameSchedule = () => {
     );
 
     const gamesOnlyData = games.map((game) => {
-      const gameDate = date(game.start_time).dateWithMinWeek;
+      const gameDate = date(game.start_time).dateWithMinWeekNew;
       return gameDate;
     });
 

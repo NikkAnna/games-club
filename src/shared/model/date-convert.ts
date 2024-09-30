@@ -11,6 +11,8 @@ export const date = (date: string) => {
 
   const daysOfWeekMin = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 
+  const minMonths = ['дек', "янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя"]
+
   const dateFormat = Date.parse(date);
   const newDate = new Date(dateFormat);
   const hours = newDate.getHours();
@@ -20,6 +22,7 @@ export const date = (date: string) => {
   const year = newDate.getFullYear();
   const week = daysOfWeek[newDate.getDay()];
   const weekMin = daysOfWeekMin[newDate.getDay()];
+  const minMonth = minMonths[newDate.getMonth()];
 
   const editMinutes = minutes < 10 ? '0' + minutes : minutes;
   const editHours = hours < 10 ? '0' + hours : hours;
@@ -30,6 +33,7 @@ export const date = (date: string) => {
   const onlyDate = `${week} ${editDay}.${editMonth}.${year}`;
   const time = `${editHours}:${editMinutes}`;
   const dateWithMinWeek = `${day}.${editMonth} ${weekMin}`;
+  const dateWithMinWeekNew = `${editDay} ${minMonth} ${weekMin}`;
 
   const dateConvert = {
     editMinutes,
@@ -41,7 +45,8 @@ export const date = (date: string) => {
     week,
     onlyDate,
     time,
-    dateWithMinWeek
+    dateWithMinWeek,
+    dateWithMinWeekNew
   };
 
   return dateConvert;

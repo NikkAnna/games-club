@@ -15,6 +15,7 @@ export const HeaderMenu = () => {
         {`
           .navbar {
             height: clamp(2.875rem, 2.1796rem + 1.4085vw, 3.5rem);
+            font-family: cursive;
           }
 
           .container {
@@ -32,15 +33,21 @@ export const HeaderMenu = () => {
             background-color: #FC411E;
             color: #fff;
           }
+
+          .nav-pills .nav-link.active:hover {
+            color: #fff;
+          }
             
           .nav-pills .nav-link:hover {
-              text-shadow: 0 0 1px #FC411E; 
+              color: grey;
           }
           `}
       </style>
       <Navbar bg='light' data-bs-theme='light' sticky='top' fixed='top'>
         <Container>
-          <Navbar.Brand href='/#about-us'>logo</Navbar.Brand>
+          <a href='#' className={styles.logo}>
+            <img src='/Logo_main.png' alt='' className={styles.logoImage} />
+          </a>
 
           {!tablet && (
             <Nav variant='pills' defaultActiveKey='/#about-us'>

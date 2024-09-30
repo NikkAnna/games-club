@@ -21,9 +21,9 @@
 }
 .games:hover {
   text-shadow:
-    0 0 200px #ffffff,
-    0 0 80px #008000,
-    0 0 6px #0000ff;
+    0 0 200px #000000,
+    0 0 80px #000000,
+    0 0 6px #000000;
 }
 .notFound:hover {
   text-shadow:
@@ -32,11 +32,11 @@
     0 0 8px DarkRed;
 }
 .games {
-  color: #fff;
+  color: #000000;
   text-shadow:
-    0 0 80px #ffffff,
-    0 0 30px #008000,
-    0 0 6px #0000ff;
+    0 0 80px #000000,
+    0 0 30px #000000,
+    0 0 6px #000000;
 }
 .games .span {
   animation: upper 6s linear infinite;
@@ -59,9 +59,9 @@
   100% {
     opacity: 0.99;
     text-shadow:
-      0 0 80px #ffffff,
-      0 0 30px #008000,
-      0 0 6px #0000ff;
+      0 0 80px #000000,
+      0 0 30px #000000,
+      0 0 6px #000000;
   }
   20%,
   21.999%,
