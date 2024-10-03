@@ -4,6 +4,7 @@ body {
   background-size: 500% 500%;
   /* animation: bg-gradient 40s ease infinite; */
   max-width: 1500px;
+  box-sizing: border-box;
 }
 
 /* @keyframes bg-gradient {

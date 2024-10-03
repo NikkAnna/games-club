@@ -1,23 +1,15 @@
 import '../../index.css';
 
-import { PrimeReactContext, PrimeReactProvider } from 'primereact/api';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { getAllGamesThunk, getGamesSelector } from '../slices/gamesSlice';
 import { useDispatch, useSelector } from '../services/store';
 
-// import { GameDay } from '../../features/game-day/ui';
-import { GameSchedule } from '../../widgets/game-schedule/ui/game-schedule';
 import { HeaderMenu } from '../../widgets/header-menu/ui/header-menu';
 import { Home } from '../../pages/home/home';
-import { NoGameBunner } from '../../entity/no-games-banner/ui';
 import { Preloader } from '../../entity/preloader/ui/preloader';
-import { ScheduleHeaderItem } from '../../entity/schedule-header';
-import { ScheduleTabs } from '../../entity/schedule-tabs';
-import { TodayButton } from '../../entity/today-button';
 import { getGamesApi } from '../../shared/api/games-api';
 import styles from './app.module.css';
 import { useEffect } from 'react';
-import { BurgerMenu } from '../../widgets/burger-menu/ui/burger-menu';
 
 // import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 // import {
@@ -57,7 +49,6 @@ const App = () => {
     <>
       <div className={styles.app}>
         <HeaderMenu />
-        <GameSchedule />
         <Routes>
           <Route path='/' element={<Home />} />
         </Routes>

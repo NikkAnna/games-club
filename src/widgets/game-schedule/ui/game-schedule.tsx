@@ -8,7 +8,8 @@ import {
 import { useDispatch, useSelector } from '../../../app/services/store';
 import { useEffect, useRef, useState } from 'react';
 
-import { GameCard } from '../../../entity/game-card/ui/game-card';
+// import { GameCard } from '../../../entity/game-card/ui/game-card';
+import { GameCard } from '../../../widgets/game-card/ui';
 import { NoGameBunner } from '../../../entity/no-games-banner/ui';
 import { Preloader } from '../../../entity/preloader/ui';
 import { ScheduleHeaderItem } from '../../../entity/schedule-header';
