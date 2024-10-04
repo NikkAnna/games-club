@@ -91,33 +91,7 @@ export const GameSchedule = () => {
   const type = ['Все игры'];
   const gameTypes = useSelector(getGamesTypesSelector);
   const allTypes = [...type, ...gameTypes];
-  // const dates = [
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР',
-  //   '6.09 СР'
-  // ];
+
   const dispatch = useDispatch();
   const allGames = useSelector(getGamesSelector);
   const todayGames = allGames.filter(

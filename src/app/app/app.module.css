@@ -19,13 +19,13 @@
   background: #fc411e;
 }
 
-.detailPageWrap {
+/* .detailPageWrap {
   margin: 120px auto;
 }
 
 .detailHeader {
   text-align: center;
-}
+} */
 
 @media screen and (width <= 1024px) {
   .app {

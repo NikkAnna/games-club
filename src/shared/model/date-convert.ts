@@ -11,7 +11,20 @@ export const date = (date: string) => {
 
   const daysOfWeekMin = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 
-  const minMonths = ['дек', "янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя"]
+  const minMonths = [
+    'янв',
+    'фев',
+    'мар',
+    'апр',
+    'май',
+    'июн',
+    'июл',
+    'авг',
+    'сен',
+    'окт',
+    'ноя',
+    'дек'
+  ];
 
   const dateFormat = Date.parse(date);
   const newDate = new Date(dateFormat);

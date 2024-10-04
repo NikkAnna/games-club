@@ -1,0 +1,22 @@
+.button {
+    background: #FC411E;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.button:hover {
+    opacity: 85%;
+}
+
+.button:active {
+    opacity: 60%;
+}
+
+.disabled {
+    pointer-events: none;
+    background: #575757;
+}

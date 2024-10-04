@@ -1,6 +1,8 @@
 import { date } from '../../../shared/model/date-convert';
 import { TGame } from '../../../shared/types/types';
 import styles from '../game-card.module.css';
+import { CardButton } from '../../../entity/card-button/ui';
+import { CardPlayerAvatar } from '../../../entity/card-player-avatar/ui';
 
 type TGameCardProps = {
   game: TGame;
@@ -23,6 +25,7 @@ export const GameCard = ({ game }: TGameCardProps) => {
       <div className={styles.imageContainer}>
         <img
           src='https://avatars.mds.yandex.net/get-altay/5965316/2a000001806afb83751c95114b771acfad29/XXL_height'
+          //заменить на картинку которая приходит с сервера
           alt=''
           className={styles.img}
         />
@@ -30,16 +33,25 @@ export const GameCard = ({ game }: TGameCardProps) => {
           className={styles.totalNumber}
         >{`Записано игроков: ${totalPlayersNumber}`}</div>
       </div>
-      <div>
-        <h2>{game.game_kind.name}</h2>
-        <p>{`${date(game.start_time).onlyDate} в ${date(game.start_time).time}`}</p>
-        <p>{game.address}</p>
-        <p>{game.cost}</p>
-      </div>
-      <div>
-        <h3>Записаны на игру: </h3>
-      </div>
-      <button>Записаться на игру</button>
+      <section className={styles.contentSection}>
+        <div>
+          <h2 className={styles.title}>{game.game_kind.name}</h2>
+          <div className={styles.textbox}>
+            <p
+              className={styles.text}
+            >{`${date(game.start_time).onlyDate} в ${date(game.start_time).time}`}</p>
+            <p className={styles.text}>{game.address}</p>
+            <p className={styles.text}>{`Стоимость: ${game.cost} руб.`}</p>
+          </div>
+        </div>
+        <div>
+          <h3 className={styles.subtitle}>Придут на игру: </h3>
+          <div>
+            <CardPlayerAvatar />
+          </div>
+        </div>
+        <CardButton children={'Записаться'} onClick={handleClick} />
+      </section>
     </article>
   );
 };

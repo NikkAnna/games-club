@@ -47,11 +47,13 @@ const App = () => {
 
   return (
     <>
-      <div className={styles.app}>
+      <div >
         <HeaderMenu />
+        <div className={styles.app}>
         <Routes>
           <Route path='/' element={<Home />} />
         </Routes>
+        </div>
         {/* <AppHeader />
         <Routes location={backgroundLocation || location}>
           <Route path='*' element={<NotFound404 />} />

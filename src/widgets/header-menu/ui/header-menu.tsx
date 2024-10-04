@@ -16,6 +16,7 @@ export const HeaderMenu = () => {
           .navbar {
             height: clamp(2.875rem, 2.1796rem + 1.4085vw, 3.5rem);
             font-family: cursive;
+            width: 100%
           }
 
           .container {
@@ -39,11 +40,11 @@ export const HeaderMenu = () => {
           }
             
           .nav-pills .nav-link:hover {
-              color: grey;
+              color: #fff;
           }
           `}
       </style>
-      <Navbar bg='light' data-bs-theme='light' sticky='top' fixed='top'>
+      <Navbar bg='dark' data-bs-theme='dark' sticky='top' fixed='top'>
         <Container>
           <a href='#' className={styles.logo}>
             <img src='/Logo_main.png' alt='' className={styles.logoImage} />
