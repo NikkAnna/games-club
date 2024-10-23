@@ -6,6 +6,7 @@ import { BurgerMenu } from '../../../widgets/burger-menu/ui';
 import { useResize } from '../../../shared/hooks/useResize';
 import { MenuState } from '../../../widgets/burger-menu/model/burger-menu-context';
 import { LogoSVG } from '../../../shared/ui/logo/logo';
+import { Link } from 'react-router-dom';
 
 export const HeaderMenu = () => {
   const tablet = useResize().isScreenTablet;
@@ -54,9 +55,15 @@ export const HeaderMenu = () => {
 
           {!tablet && (
             <Nav variant='pills' defaultActiveKey='/#about-us'>
-              <Nav.Link href='/#about-us'>О нас</Nav.Link>
-              <Nav.Link href='/#schedule'>Записаться на игру</Nav.Link>
-              <Nav.Link href='/profile'>Мой профиль</Nav.Link>
+              <Link to={'/#about-us'} className={styles.link}>
+                <Nav.Link href='/#about-us'>О нас</Nav.Link>
+              </Link>
+              <Link to={'/#schedule'} className={styles.link}>
+                <Nav.Link href='/#schedule'>Записаться на игру</Nav.Link>
+              </Link>
+              <Link to={'/login'} className={styles.link}>
+                <Nav.Link href='/login'>Мой профиль</Nav.Link>
+              </Link>
             </Nav>
           )}
 

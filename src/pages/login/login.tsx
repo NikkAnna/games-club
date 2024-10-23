@@ -7,15 +7,15 @@ export const LoginPage = () => {
 
   //проверка, указать в каком формате должен быть телефон
   //   const handleSubmit = (e: SyntheticEvent) => {
-//     e.preventDefault();
+  //     e.preventDefault();
 
-//     if (!email || !password) {
-//       setErrorText('Введите свои данные');
-//       return;
-//     }
+  //     if (!email || !password) {
+  //       setErrorText('Введите свои данные');
+  //       return;
+  //     }
 
-//     dispatch(loginUserThunk({ email, password }));
-//   };
+  //     dispatch(loginUserThunk({ email, password }));
+  //   };
 
   return (
     <section className={styles.page}>

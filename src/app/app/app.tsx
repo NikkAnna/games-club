@@ -35,8 +35,6 @@ import { LoginPage } from '../../pages/login/login';
 // import { getUser } from '../../slices/userSlice';
 
 const App = () => {
-
-  
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const order = useSelector(getOrderByNumber);
@@ -51,15 +49,15 @@ const App = () => {
 
   return (
     <>
-      <div >
+      <div>
         <HeaderMenu />
         <div className={styles.app}>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<LoginPage />} />
-        </Routes>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<LoginPage />} />
+          </Routes>
         </div>
-        
+
         {/* <AppHeader />
         <Routes location={backgroundLocation || location}>
           <Route path='*' element={<NotFound404 />} />

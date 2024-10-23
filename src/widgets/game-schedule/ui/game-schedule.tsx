@@ -20,7 +20,7 @@ import cn from 'classnames';
 
 type TGameSchedulerProps = {
   onPlayersModalVisibility: React.Dispatch<React.SetStateAction<boolean>>;
-}
+};
 
 export const GameSchedule = () => {
   const typeRef = useRef('');
