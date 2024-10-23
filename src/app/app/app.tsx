@@ -9,7 +9,8 @@ import { Home } from '../../pages/home/home';
 import { Preloader } from '../../entity/preloader/ui/preloader';
 import { getGamesApi } from '../../shared/api/games-api';
 import styles from './app.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { PlayersModal } from '../../widgets/players-modal/players-modal';
 
 // import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 // import {
@@ -33,6 +34,8 @@ import { useEffect } from 'react';
 // import { getUser } from '../../slices/userSlice';
 
 const App = () => {
+
+  
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const order = useSelector(getOrderByNumber);
@@ -54,6 +57,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
         </Routes>
         </div>
+        
         {/* <AppHeader />
         <Routes location={backgroundLocation || location}>
           <Route path='*' element={<NotFound404 />} />

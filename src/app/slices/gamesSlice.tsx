@@ -92,7 +92,11 @@ const gamesSlice = createSlice({
       const types = state.games.map((game) => game.game_kind.name);
       return types.filter((t, index) => types.indexOf(t) === index);
     },
-    getLoaderSelector: (state) => state.loader
+    getLoaderSelector: (state) => state.loader,
+    getPlayersSelector: (state) => {
+      const players = state.games.map((game) => {return game.registration_records })
+      return players
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -117,5 +121,6 @@ export const {
   getGamesSelector,
   getSelectedGamesSelector,
   getGamesTypesSelector,
-  getLoaderSelector
+  getLoaderSelector,
+  getPlayersSelector
 } = gamesSlice.selectors;

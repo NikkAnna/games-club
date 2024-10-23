@@ -5,6 +5,7 @@ import styles from './header-menu.module.css';
 import { BurgerMenu } from '../../../widgets/burger-menu/ui';
 import { useResize } from '../../../shared/hooks/useResize';
 import { MenuState } from '../../../widgets/burger-menu/model/burger-menu-context';
+import { LogoSVG } from '../../../shared/ui/logo/logo';
 
 export const HeaderMenu = () => {
   const tablet = useResize().isScreenTablet;
@@ -16,7 +17,8 @@ export const HeaderMenu = () => {
           .navbar {
             height: clamp(2.875rem, 2.1796rem + 1.4085vw, 3.5rem);
             font-family: cursive;
-            width: 100%
+            width: 100%;
+            z-index: 10
           }
 
           .container {
@@ -47,7 +49,7 @@ export const HeaderMenu = () => {
       <Navbar bg='dark' data-bs-theme='dark' sticky='top' fixed='top'>
         <Container>
           <a href='#' className={styles.logo}>
-            <img src='/Logo_main.png' alt='' className={styles.logoImage} />
+            <LogoSVG />
           </a>
 
           {!tablet && (

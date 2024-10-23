@@ -1,12 +1,14 @@
-body {
-  margin: 0 auto;
-  background: #F8F9FA;
-  background-size: 500% 500%;
-  /* animation: bg-gradient 40s ease infinite; */
-  max-width: 1500px;
-  box-sizing: border-box;
+* {
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+body {
+  background: #F8F9FA;
+}
+
+
 
 /* @keyframes bg-gradient {
   0% {

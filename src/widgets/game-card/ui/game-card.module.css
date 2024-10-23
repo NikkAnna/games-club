@@ -1,11 +1,10 @@
 .card {
-    height: 650px;
     width: 650px;
     border-radius: 11px;
     /* border: 1px solid #000; */
     /* outline: 1px solid #000; */
     box-shadow: 4px 3px 8px 2px rgba(87, 87, 87, 0.39);
-    font-family: sans-serif;
+    /* font-family: cursive; */
 }
 
 .imageContainer {
@@ -73,4 +72,24 @@
 .subtitle {
     font-size: 16px;
     font-weight: 800;
+}
+
+.avatars {
+    display: flex;
+    margin: 0 0 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatarsImages {
+    display: flex;
+}
+
+.infoIcon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.infoIcon:hover {
+    transform: scale(1.1);
 }

@@ -5,6 +5,7 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import { TGame } from '../../../shared/types/types';
 import { date } from '../../../shared/model/date-convert';
+import { CardPlayerAvatar } from '../../../entity/card-player-avatar/ui';
 
 type TGameCardProps = {
   game: TGame;
@@ -99,6 +100,9 @@ export const GameCard = ({ game }: TGameCardProps) => {
               roundedCircle
             />
           </div>
+          <article>
+            <CardPlayerAvatar />
+          </article>
           <Button variant='primary' onClick={handleClick}>
             Записаться
           </Button>

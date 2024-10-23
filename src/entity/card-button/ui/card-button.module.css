@@ -5,11 +5,13 @@
     text-transform: uppercase;
     padding: 10px;
     border-radius: 10px;
-    width: 80%;
+    width: 100%;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
     opacity: 85%;
+    transform: scale(1.02);
 }
 
 .button:active {

@@ -38,3 +38,12 @@ export type TUser = {
 };
 
 export type TTabMode = 'bun' | 'sauce' | 'main';
+
+export type ValueOf<T> = T[keyof T];
+
+export const size = {
+  BIG: 'Большой размер',
+  SMALL: 'Малый размер'
+};
+
+export type TSize = ValueOf<typeof size>;

@@ -8,7 +8,6 @@ import {
 import { useDispatch, useSelector } from '../../../app/services/store';
 import { useEffect, useRef, useState } from 'react';
 
-// import { GameCard } from '../../../entity/game-card/ui/game-card';
 import { GameCard } from '../../../widgets/game-card/ui';
 import { NoGameBunner } from '../../../entity/no-games-banner/ui';
 import { Preloader } from '../../../entity/preloader/ui';
@@ -19,68 +18,9 @@ import { date } from '../../../shared/model/date-convert';
 import styles from './game-schedule.module.css';
 import cn from 'classnames';
 
-// const games = [
-//   {
-//     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//     address: 'Мясницкая',
-//     start_time: '18:00',
-//     date: '29 сентября',
-//     game_kind: {
-//       id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//       name: 'Городская мафия'
-//     },
-//     cost: 500,
-//     registration_records: [
-//       {
-//         user_id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//         nickname: 'string',
-//         telegram_id: 0,
-//         referrals_amount: 1
-//       }
-//     ],
-//     deletedAt: null
-//   },
-//   {
-//     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//     address: 'Мясницкая',
-//     start_time: '18:00',
-//     date: '29 сентября',
-//     game_kind: {
-//       id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//       name: 'Городская мафия'
-//     },
-//     cost: 500,
-//     registration_records: [
-//       {
-//         user_id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//         nickname: 'string',
-//         telegram_id: 0,
-//         referrals_amount: 1
-//       }
-//     ],
-//     deletedAt: null
-//   },
-//   {
-//     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//     address: 'Мясницкая',
-//     start_time: '18:00',
-//     date: '29 сентября',
-//     game_kind: {
-//       id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//       name: 'Городская мафия'
-//     },
-//     cost: 500,
-//     registration_records: [
-//       {
-//         user_id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-//         nickname: 'string',
-//         telegram_id: 0,
-//         referrals_amount: 1
-//       }
-//     ],
-//     deletedAt: null
-//   }
-// ];
+type TGameSchedulerProps = {
+  onPlayersModalVisibility: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 export const GameSchedule = () => {
   const typeRef = useRef('');
