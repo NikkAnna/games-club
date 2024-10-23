@@ -11,6 +11,7 @@ import { getGamesApi } from '../../shared/api/games-api';
 import styles from './app.module.css';
 import { useEffect, useState } from 'react';
 import { PlayersModal } from '../../widgets/players-modal/players-modal';
+import { LoginPage } from '../../pages/login/login';
 
 // import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 // import {
@@ -55,6 +56,7 @@ const App = () => {
         <div className={styles.app}>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/login' element={<LoginPage />} />
         </Routes>
         </div>
         

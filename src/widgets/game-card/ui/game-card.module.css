@@ -37,7 +37,7 @@
 } */
 
 .totalNumber {
-    background: #FC411E;
+    background: var(--accent-color);
     border-radius: 5px;
     min-width: 20%;
     align-self: flex-end;

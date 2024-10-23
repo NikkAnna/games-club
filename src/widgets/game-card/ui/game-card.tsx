@@ -65,9 +65,9 @@ export const GameCard = ({ game }: TGameCardProps) => {
             <h3 className={styles.subtitle}>Придут на игру: </h3>
             <article className={styles.avatars}>
               <div className={styles.avatarsImages}>
-                <CardPlayerAvatar size={size.SMALL}/>
-                <CardPlayerAvatar size={size.SMALL}/>
-                <CardPlayerAvatar size={size.SMALL}/>
+                <CardPlayerAvatar size={size.SMALL} />
+                <CardPlayerAvatar size={size.SMALL} />
+                <CardPlayerAvatar size={size.SMALL} />
               </div>
               <div className={styles.infoIcon} onClick={iconHandleClick}>
                 <InfoIcon />
