@@ -51,12 +51,14 @@ export const GameSchedule = () => {
       return gameDate;
     });
 
+    const gamesUniqueData = Array.from(new Set(gamesOnlyData));
+    
     const gamesInitialData = games.map((game) => {
       const gameDate = game.start_time;
-      return gameDate;
+      return date(gameDate).onlyDate;
     });
 
-    return { gamesOnlyData, gamesInitialData };
+    return { gamesOnlyData, gamesInitialData, gamesUniqueData };
   };
 
   const isGameToday = (): boolean => {
@@ -122,11 +124,11 @@ export const GameSchedule = () => {
     setTodayGamesActive(true);
     dispatch(
       getSelectedGames({
-        date: todayGames[0].start_time,
+        date: date(todayGames[0].start_time).onlyDate,
         type: typeRef.current
       })
     );
-    dateRef.current = todayGames[0].start_time;
+    dateRef.current = date(todayGames[0].start_time).onlyDate;
   };
 
   const handleChangeDateTabs = (
@@ -158,7 +160,7 @@ export const GameSchedule = () => {
           onClickTodayGames={handleClickTodayGames}
           todayGamesActive={todayGamesActive}
           value={tabActive}
-          dates={gameDates().gamesOnlyData}
+          dates={gameDates().gamesUniqueData}
           onChange={handleChangeDateTabs}
           disabled={!isGameToday()}
         />

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 export type TCardButtonProps = {
   children: ReactNode | string;
-  onClick: () => void;
+  onClick?: () => void;
   setDisabled?: boolean;
 };
 

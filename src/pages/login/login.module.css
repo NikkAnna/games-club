@@ -10,72 +10,59 @@
     box-shadow: 16px -12px 0px 1px var(--accent-color);
 }
   
-.center .title {
+.title {
     text-align: center;
     padding: 0 0 20px 0;
     border-bottom: 1px solid silver;
 }
   
-.center .form {
+.form {
     padding: 0 40px;
     box-sizing: border-box;
 }
   
-.form .txt_field {
+.txt_field {
     position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 30px 0;
+    margin: 30px 0 20px;
 }
   
-.txt_field input {
+.input {
     width: 100%;
-    padding: 0 5px;
+    padding: 0 5px 5px;
     height: 40px;
     font-size: 16px;
     border: none;
     background: none;
     outline: none;
+    border-bottom: 2px solid #adadad;
+    transition: 0.3s ease;
+    cursor: text;
+    color: var(--grey);
 }
+
+.input::placeholder {
+    color: #adadad;
+}
+
+.input:focus,
+.input:hover {
+    border-bottom: 2px solid var(--accent-color);
+} 
   
-.txt_field .label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: var(--light-grey);
+.label {
+    color: var(--grey);
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
     transition: 0.3s;
 }
   
-.txt_field span::before {
-    content: "";
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--accent-color);
-    transition: 0.3s;
-}
-  
-.txt_field input:focus ~ label,
-.txt_field input:valid ~ label {
-    top: -5px;
-    color: var(--accent-color);
-}
-  
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before {
-    width: 100%;
-}
-  
 .pass {
     margin: -5px 0px 15px 5px;
-    color: var(--light-grey);
+    color: var(--grey);
 }
   
-input[type="submit"] {
+.submit {
     width: 100%;
     height: 50px;
     border: 1px solid;
@@ -88,9 +75,14 @@ input[type="submit"] {
     cursor: pointer;
 }
   
-input[type="submit"]:hover {
+.submit:hover {
     border-color: var(--accent-color);
     transition: 0.5s;
+}
+
+.disabled {
+    pointer-events: none;
+    background: var(--grey);
 }
 
 .signup_link {
@@ -107,5 +99,11 @@ input[type="submit"]:hover {
   
 .signup_link a:hover {
     text-decoration: underline;
+}
+
+.error {
+    color: var(--accent-color);
+    font-size: 11px;
+    margin: 5px 0 0 0;
 }
   

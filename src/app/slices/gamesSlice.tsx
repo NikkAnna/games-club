@@ -1,5 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient, TOrder } from '@utils-types';
+import { date } from '../../shared/model/date-convert';
 
 import { TGame } from '../../shared/types/types';
 import { getGamesApi } from '../../shared/api/games-api';
@@ -65,19 +66,20 @@ const gamesSlice = createSlice({
         action.payload.type === 'Все игры'
       ) {
         state.selectedGames = state.games.filter(
-          (game) => game.start_time === action.payload.date
+          (game) => date(game.start_time).onlyDate === action.payload.date
         );
       } else if (
         action.payload.date !== 'Все даты' &&
         action.payload.type !== 'Все игры'
       ) {
         const selected = state.games.filter(
-          (game) => game.start_time === action.payload.date
+          (game) => date(game.start_time).onlyDate === action.payload.date
         );
         state.selectedGames = selected.filter(
           (game) => game.game_kind.name === action.payload.type
         );
       }
+      // console.log(state.selectedGames)
     }
 
     // getGamesTypes: (state) => {

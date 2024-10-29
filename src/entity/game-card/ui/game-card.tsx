@@ -1,11 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
 import { TGame } from '../../../shared/types/types';
 import { date } from '../../../shared/model/date-convert';
 import { CardPlayerAvatar } from '../../../entity/card-player-avatar/ui';
+import { size } from '../../../utils/types';
 
 type TGameCardProps = {
   game: TGame;
@@ -101,7 +100,7 @@ export const GameCard = ({ game }: TGameCardProps) => {
             />
           </div>
           <article>
-            <CardPlayerAvatar />
+            <CardPlayerAvatar size={size.SMALL} />
           </article>
           <Button variant='primary' onClick={handleClick}>
             Записаться
