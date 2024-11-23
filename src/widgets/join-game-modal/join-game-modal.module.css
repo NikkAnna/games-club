@@ -1,0 +1,32 @@
+.modal {
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.wrapper {
+    margin: 10px;
+}
+
+.text {
+    font-size: 16px;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+    margin: 5px 0 0;
+}
+
+.counter {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.error {
+    color: var(--accent-color);
+    font-size: 10px;
+}

@@ -80,6 +80,7 @@ export const GameCard = ({ game }: TGameCardProps) => {
             </article>
           </div>
           <CardButton
+          type='button'
             children={'Записаться на игру'}
             onClick={buttonHandleClick}
           />

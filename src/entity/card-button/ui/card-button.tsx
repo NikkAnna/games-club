@@ -6,13 +6,16 @@ export type TCardButtonProps = {
   children: ReactNode | string;
   onClick?: () => void;
   setDisabled?: boolean;
+  color?: 'standart' | 'white';
+  type: 'button' | 'submit';
 };
 
 export const CardButton = (props: TCardButtonProps) => (
-  <button
+  <button type={props.type}
     className={classNames(
       styles.button,
-      props.setDisabled ? styles.disabled : ''
+      props.setDisabled ? styles.disabled : '',
+      props.color === 'white' ? styles.white : ''
     )}
     onClick={props.onClick}
   >

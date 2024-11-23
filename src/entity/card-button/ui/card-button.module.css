@@ -1,5 +1,5 @@
 .button {
-    background: #FC411E;
+    background: var(--accent-color);
     border: none;
     color: #fff;
     text-transform: uppercase;
@@ -20,5 +20,9 @@
 
 .disabled {
     pointer-events: none;
-    background: #575757;
+    background: var(--grey);
+}
+
+.white {
+    background: var(--light-grey);
 }
