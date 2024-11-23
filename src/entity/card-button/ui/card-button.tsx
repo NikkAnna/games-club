@@ -11,7 +11,8 @@ export type TCardButtonProps = {
 };
 
 export const CardButton = (props: TCardButtonProps) => (
-  <button type={props.type}
+  <button
+    type={props.type}
     className={classNames(
       styles.button,
       props.setDisabled ? styles.disabled : '',

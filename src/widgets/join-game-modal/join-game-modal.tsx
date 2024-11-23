@@ -4,6 +4,7 @@ import { Modal } from '../../shared/ui/modal/modal';
 
 import styles from './join-game-modal.module.css';
 import { FormEvent, useState } from 'react';
+import { getRandomInvitation } from '../../utils/random-invitation';
 
 type TJoinGameModalProps = {
   onClose: () => void;
@@ -41,9 +42,7 @@ export const JoinGameModal = (props: TJoinGameModalProps) => {
                   >{`Вы можете привести только ${props.maxFriendsPlayers ? props.maxFriendsPlayers : 10} друзей`}</p>
                 )}
               </>
-              <p className={styles.text}>
-                Рандомная фраза-вопрос, которую придумает Александр
-              </p>
+              <p className={styles.text}>{getRandomInvitation()}</p>
               <div className={styles.buttons}>
                 <CardButton
                   type='submit'

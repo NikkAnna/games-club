@@ -13,7 +13,6 @@
     font-size: 20px;
     color: var(--accent-color);
     border: none;
-    -moz-appearance: textfield;
     text-align: center;
 
 }
@@ -23,12 +22,12 @@
 }
 
 .input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
   margin: 0;
 }
 
 .input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
   margin: 0;
 }
 

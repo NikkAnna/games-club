@@ -9,7 +9,6 @@ type TCounterProps = {
 };
 
 export const Counter = (props: TCounterProps) => {
-
   const handleIncrease = () => {
     props.setValue((value) => value + 1);
   };
