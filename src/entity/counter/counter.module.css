@@ -1,0 +1,40 @@
+.button {
+    border: none;
+    font-family: inherit;
+    color: var(--main-text-color);
+    font-size: 25px;
+    background: none;
+}
+
+.input {
+    display: inline-block;
+    background: none;
+    font-family: inherit;
+    font-size: 20px;
+    color: var(--accent-color);
+    border: none;
+    -moz-appearance: textfield;
+    text-align: center;
+
+}
+
+.input:focus-visible {
+   outline: none;
+}
+
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  margin: 0;
+}
+
+.input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  margin: 0;
+}
+
+.error {
+    color: var(--accent-color);
+    font-size: 10px;
+}
+
+

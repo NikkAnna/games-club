@@ -9,6 +9,7 @@ import { PlayersModal } from '../../../widgets/players-modal/players-modal';
 
 import styles from './game-card.module.css';
 import { size } from '../../../utils/types';
+import { JoinGameModal } from '../../../widgets/join-game-modal/join-game-modal';
 
 type TGameCardProps = {
   game: TGame;
@@ -18,6 +19,9 @@ export const GameCard = ({ game }: TGameCardProps) => {
   const [playersModalVisible, setPlayersModalVisible] =
     useState<boolean>(false);
 
+  const [joinGameModalVisible, setJoinGameModalVisible] =
+    useState<boolean>(false);
+
   const totalPlayersNumber =
     game.registration_records.length +
     game.registration_records.reduce(function (sum, currentSum) {
@@ -25,6 +29,7 @@ export const GameCard = ({ game }: TGameCardProps) => {
     }, 0);
 
   const buttonHandleClick = () => {
+    setJoinGameModalVisible(true);
     //confirm modal open, success modal open, button changes status and color if player is on game
     //if player not login redirect to login page
   };
@@ -82,6 +87,9 @@ export const GameCard = ({ game }: TGameCardProps) => {
       </article>
       {playersModalVisible && (
         <PlayersModal onClose={() => setPlayersModalVisible(false)} />
+      )}
+      {joinGameModalVisible && (
+        <JoinGameModal onClose={() => setJoinGameModalVisible(false)} />
       )}
     </>
   );
